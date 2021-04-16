@@ -1,26 +1,50 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <header>
+    <ul>
+      <li><a href="#home">LinguaLeo</a></li>
+      <li><a href="#task">Задания</a></li>
+      <li><a href="#jungle">Джунгли</a></li>
+      <li><a href="#workout">Тренировки</a></li>
+      <li><a href="#vocab">Словарь</a></li>
+      <li style="float: right"><a class="active" href="#about">About</a></li>
+    </ul>
+  </header>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: {},
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style scoped>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  padding-left: 30px;
+}
+
+li a {
+  display: block;
+  color: white;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4caf50;
 }
 </style>
