@@ -1,10 +1,17 @@
 <template>
   <nav>
-    <div class="menu-item"><a href="#">LinguaLeo</a></div>
+    <!-- <router-link :to="{ name: 'Home' }">Home</router-link> -->
+    <div class="menu-item">
+      <router-link :to="{ name: 'Home' }">LinguaLeo</router-link>
+    </div>
     <Dropdown title="Задания" :items="task" />
     <!-- <div class="menu-item"><a href="#">Задания</a></div> -->
     <Dropdown title="Джунгли" :items="jungle" />
-    <Dropdown title="Тренировки" :items="workout" />
+    <Dropdown title="Тренировки" :items="allWorkout" />
+    <router-link :to="{ name: 'LeoSprint' }"></router-link>
+    <router-link :to="{ name: 'Workouts' }"></router-link>
+    <!-- <Dropdown title="Тренировки" :items="workout" /> -->
+
     <div class="menu-item"><a href="#">Словарь</a></div>
     <div class="menu-item"><a href="#">About</a></div>
   </nav>
@@ -13,6 +20,7 @@
 
 <script>
 import Dropdown from "./Dropdown";
+import LeoSprint from "../views/LeoSprint";
 
 export default {
   name: "Navbar",
@@ -57,22 +65,30 @@ export default {
           link: "#",
         },
       ],
-      workout: [
+      allWorkout: [
         {
-          title: "Грамматические",
-          link: "#",
+          title: "Словарные карточки",
+          link: { name: "Workouts" },
         },
         {
-          title: "Словарные",
-          link: "#",
+          title: "Слово-перевод",
+          link: { name: "WordTranslation" },
         },
         {
-          title: "Чтение",
-          link: "#",
+          title: "Лео-спринт",
+          link: { name: "LeoSprint" },
         },
         {
-          title: "Аудирование",
-          link: "#",
+          title: "Перевод-слово",
+          link: { name: "TranslationWord" },
+        },
+        {
+          title: "Конструктор слов",
+          link: { name: "WordsConstructor" },
+        },
+        {
+          title: "Повторение",
+          link: { name: "Repeating" },
         },
       ],
     };
@@ -94,56 +110,20 @@ nav .menu-item {
   border-bottom: 3px solid transparent;
   display: flex;
   transition: 0.3s;
+  cursor: pointer;
 }
 nav .menu-item.active,
 nav .menu-item:hover {
   background-color: #444;
   border-bottom-color: #ff5858;
 }
-nav .menu-item a {
+.menu-item a {
   color: inherit;
   text-decoration: none;
+  display: block;
+  cursor: pointer;
 }
 </style>
 
 
 
-//  <ul>
-//       <li><a href="#home">LinguaLeo</a></li>
-//       <li><a href="#task">Задания</a></li>
-//       <li><a href="#jungle">Джунгли</a></li>
-//         <li><a href="#workout">Тренировки </a></li>
-      
-
-//       <li><a href="#vocab">Словарь</a></li>
-//       <li style="float: right"><a class="active" href="#about">About</a></li>
-//     </ul>
-
-// ul {
-//   list-style-type: none;
-//   margin: 0;
-//   padding: 0;
-//   overflow: hidden;
-//   background-color: #333;
-// }
-
-// li {
-//   float: left;
-//   padding-left: 30px;
-// }
-
-// li a {
-//   display: block;
-//   color: white;
-//   text-align: center;
-//   padding: 14px 16px;
-//   text-decoration: none;
-// }
-
-// li a:hover:not(.active) {
-//   background-color: #111;
-// }
-
-// .active {
-//   background-color: #4caf50;
-// }
